@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'raydjangoportfolio.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -68,9 +68,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
   'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': BASE_DIR / 'db.sqlite3',
-  }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_portfolio',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
 
 
