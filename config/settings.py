@@ -13,10 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_ORIGINS = ['*']
-CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
+ALLOWED_ORIGINS = ['http://*', 'https://*', 'newdjangoportfolio.herokuapp.com', 'http://newdjangoportfolio.herokuapp.com', 'https://newdjangoportfolio.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ALLOWED_ORIGINS.copy()
 
 
 # Application definition
