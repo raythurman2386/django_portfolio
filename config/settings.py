@@ -15,7 +15,8 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_ORIGINS = ['http://*', 'https://*', 'newdjangoportfolio.herokuapp.com', 'http://newdjangoportfolio.herokuapp.com', 'https://newdjangoportfolio.herokuapp.com']
+ALLOWED_ORIGINS = ['http://*', 'https://*']
+ALLOWED_HOSTS = ['http://*', 'https://*']
 CSRF_TRUSTED_ORIGINS = ALLOWED_ORIGINS.copy()
 
 
