@@ -47,7 +47,7 @@
             <div class="row">
 
                 {% for summary in summary_data %}
-                <div class="col-lg-12 mx-auto mb-5">
+                <div class="col-lg-12 mx-auto my-5">
                     <h2 class="fw-bold">{{ summary.title }}</h2>
                     <p class="text-white mb-0">
                         {{ summary.description }}
@@ -78,22 +78,20 @@
         </svg>
     </div>
     <!-- End Waves Container -->
-
 </div>
 
 <main>
-
-    <!-- Summary -->
-    <section id="summary" class="text-center py-5">
+    <!-- Employment -->
+    <section id="employment" class="text-center py-5">
         <div class="container">
-            {% if summary_data %}
+            {% if employment_data %}
             <div class="row">
-
-                {% for summary in summary_data %}
+                <h2 class="fw-bold text-center py-3">Employment</h2>
+                {% for employment in employment_data %}
                 <div class="col-lg-4 mx-auto mb-5">
-                    <h5>{{ summary.title }}</h5>
+                    <h5>{{ employment.title }}</h5>
                     <p class="text-muted mb-0">
-                        {{ summary.description }}
+                        {{ employment.description }}
                     </p>
                 </div>
                 {% endfor %}
@@ -103,9 +101,70 @@
             {% endif %}
         </div>
     </section>
-    <!-- End Summary -->
-
+    <!-- End Employment -->
     <hr>
+    <!-- Projects -->
+    <section id="projects" class="text-center py-5">
+        <div class="container">
+            {% if projects_data %}
+            <div class="row">
+                <h2 class="fw-bold text-center py-3">Projects</h2>
+                {% for projects in projects_data %}
+                <div class="col-lg-4 mx-auto mb-5">
+                    <h5>{{ projects.title }}</h5>
+                    <p class="text-muted mb-0">
+                        {{ projects.description }}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <h5 class="text-primary text-center">No Data</h5>
+            {% endif %}
+        </div>
+    </section>
+    <!-- End Projects -->
+    <hr>
+    <!-- Education -->
+    <section id="education" class="text-center py-5">
+        <div class="container">
+            {% if education_data %}
+            <div class="row">
+                <h2 class="fw-bold text-center py-3">Education</h2>
+                {% for education in education_data %}
+                <div class="col-lg-4 mx-auto mb-5">
+                    <h5>{{ education.title }}</h5>
+                    <p class="text-muted mb-0">
+                        {{ education.description }}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <h5 class="text-primary text-center">No Data</h5>
+            {% endif %}
+        </div>
+    </section>
+    <!-- End Education -->
+    <hr>
+    <!-- Skills -->
+    <section id="skills" class="text-center py-5">
+        <div class="container">
+            {% if skill_data %}
+            <div class="row">
+                <h2 class="fw-bold text-center py-3">Skills</h2>
+                {% for skill in skill_data %}
+                <div class="col-lg-4 mx-auto mb-5">
+                    <h5>{{ skill.skill }}</h5>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <h5 class="text-primary text-center">No Data</h5>
+            {% endif %}
+        </div>
+    </section>
+    <!-- End Skill -->
     <!-- Contact -->
     <section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
         <div class="container">
