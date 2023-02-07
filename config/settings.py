@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     # Local
     'portfolio',
+    'resume'
 ]
 
 MIDDLEWARE = [
