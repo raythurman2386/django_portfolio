@@ -120,12 +120,18 @@ STATIC_URL = '/static/'
 
 # Location where Django collects all static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Python Anywhere locations
+# STATIC_ROOT = "/home/rthurman2386/django_portfolio/staticFiles"
 
 # Location where we will store our static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Python Anywhere locations
+# STATICFILES_DIRS = ["/home/rthurman2386/django_portfolio/static"]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Python Anywhere locations
+# MEDIA_ROOT = "home/rthurman2386/django_portfolio/media"
 
 
 # Default primary key field type
