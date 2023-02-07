@@ -59,7 +59,7 @@ class Skill(models.Model):
     skill = models.CharField(max_length=40)
 
     def __str__(self) -> str:
-        return self.name
+        return self.skill
 
 
 class Contact(models.Model):
