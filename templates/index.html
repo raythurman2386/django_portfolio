@@ -69,7 +69,7 @@
         <div class="col-xl-5 col-xxl-6 justify-content-center">
           <!-- Image by catalyststuff on Freepik -->
           {% if hero.image.url %}
-          <img class="card-img-top" src="{{ hero.image.url }}" alt="Hero Image">
+          <img class="card-img-top" src="{% static 'images/hero.png' %}" alt="Hero Image">
           {% else %}
           <img class="card-img-top" src="{% static 'images/hero.png' %}" alt="Alternate Hero Image">
           {% endif %}
