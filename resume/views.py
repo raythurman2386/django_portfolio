@@ -1,5 +1,5 @@
 from django.views.generic.base import TemplateView
-from .models import Summary, Projects, Employment, Education, Skill, Contact
+from .models import Summary, Projects, Employment, Education, Skill, Contact, Resume_PDF
 
 
 class ResumePageView(TemplateView):

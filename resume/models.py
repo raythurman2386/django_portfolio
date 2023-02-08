@@ -73,3 +73,15 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Resume_PDF(models.Model):
+    title = models.CharField(max_length=25)
+    pdf_file = models.FileField()
+
+    class Meta:
+        verbose_name = 'Resume'
+        verbose_name_plural = 'Resume'
+
+    def __str__(self) -> str:
+        return self.title
