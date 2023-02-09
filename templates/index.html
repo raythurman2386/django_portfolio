@@ -69,9 +69,9 @@
         <div class="col-xl-5 col-xxl-6 justify-content-center">
           <!-- Image by catalyststuff on Freepik -->
           {% if hero.image.url %}
-          <img class="card-img-top" src="{% static 'images/hero.png' %}" alt="Hero Image">
+          <img class="card-img-top" src="{% static 'images/hero.png' %}" alt="Hero Image" loading="lazy">
           {% else %}
-          <img class="card-img-top" src="{% static 'images/hero.png' %}" alt="Alternate Hero Image">
+          <img class="card-img-top" src="{% static 'images/hero.png' %}" alt="Alternate Hero Image" loading="lazy">
           {% endif %}
 
         </div>
@@ -163,10 +163,10 @@
           <div class="card h-100 shadow-lg border-0 bg-light">
 
             {% if project.image.url %}
-            <img class="card-img-top" src="{{ project.image.url }}" alt="Project">
+            <img class="card-img-top" src="{{ project.image.url }}" alt="Project" loading="lazy">
             {% else %}
             <img class="card-img-top project-not-found" src="{% static 'images/no_image.png' %}"
-              alt="Image Not Available">
+              alt="Image Not Available" loading="lazy">
             {% endif %}
 
             <div class="card-body p-4">
