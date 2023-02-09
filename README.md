@@ -122,7 +122,3 @@ To modify the colors in the application, make changes in the `static/sass/styles
 ### Changing Logo
 
 To modify the logo in the application, make changes in the `templates/index.html` file.
-
-## Copyright and License
-
-Copyright © 2022 Bob's Programming Academy. Code released under the MIT license.
