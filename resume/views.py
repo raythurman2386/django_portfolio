@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 from .models import Summary, Projects, Employment, Education, Skill, Contact, Resume_PDF
+from django.http import FileResponse
 
 
 class ResumePageView(TemplateView):
@@ -14,3 +15,11 @@ class ResumePageView(TemplateView):
         context['skill_data'] = Skill.objects.all()
         context['contact_data'] = Contact.objects.all()
         return context
+
+
+def download_resume(request):
+    resume = Resume_PDF.objects.all()
+    print(resume)
+    response = FileResponse(open(resume, 'rb'))
+    response['Content-Disposition'] = f'attachment; filename="{resume.file.name}"'
+    return response
