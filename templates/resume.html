@@ -53,6 +53,10 @@
                     </p>
                 </div>
                 {% endfor %}
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <a href="{% url 'download_resume' %}"
+                        class="btn btn-light btn-lg text-uppercase px-4 py-2 me-sm-3">Download Resume</a>
+                </div>
             </div>
             {% else %}
             <h5 class="text-primary text-center">No Data</h5>

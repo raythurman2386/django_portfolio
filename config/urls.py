@@ -4,8 +4,8 @@ from django.conf.urls.static import static
 from django.urls import path, include
 
 urlpatterns = [
-    path('resume', include('resume.urls')),
     path('', include('portfolio.urls')),
+    path('resume/', include('resume.urls')),
     path('admin/', admin.site.urls),
 ]
 

@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_ORIGINS = ['http://*', 'https://*']
 ALLOWED_HOSTS = ['rthurman2386.pythonanywhere.com',
