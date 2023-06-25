@@ -1,0 +1,11 @@
+{
+    "name": "django_portfolio",
+    "version": "1.0.0",
+    "scripts": {
+        "heroku-prebuild": "cd static/ && npm install",
+        "heroku-postbuild": "cd static/ && npm install"
+    },
+    "engines": {
+        "node": "v18.16.1"
+    }
+}
