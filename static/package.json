@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install",
-    "postinstall": "cd scripts && npm install"
+    "postinstall": "cd static && npm install"
   },
   "author": "MG",
   "license": "MIT",
