@@ -9,13 +9,13 @@
 
       <a class="col-md-3 d-flex align-items-center mb-2 mb-md-0 h4 text-white text-decoration-none text-uppercase fw-bolder"
         href="/">
-        <span class="material-icons ms-2 me-3">logo_dev</span>
+        <span class="material-icons material-icons-outlined ms-2 me-3">logo_dev</span>
         Ray Thurman
       </a>
 
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="material-icons text-white">menu</span>
+        <span class="material-icons material-icons-outlined text-white">menu</span>
       </button>
 
       <div class="container px-3">
@@ -54,14 +54,14 @@
             <p class="lead text-center text-white mb-4">
               {{ hero.description }}
             </p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-3">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center m-3">
               <a type="button" href="/resume" class="btn btn-light btn-lg text-uppercase px-4 py-2 me-sm-3">
                 Resume
-                <span class="material-icons ms-2">description</span>
+                <span class="material-icons material-icons-outlined ms-2">description</span>
               </a>
               <!-- <button type="button" id="demo" class="btn btn-outline-light btn-lg text-uppercase px-4 py-2 me-sm-3">
                           View Demo
-                          <span class="material-icons ms-2">play_circle</span>
+                          <span class="material-icons material-icons-outlined ms-2">play_circle</span>
                         </button> -->
             </div>
           </div>
@@ -124,7 +124,7 @@
           <div class="d-flex mb-5 justify-content-center">
             <div
               class="about-icon d-inline-flex align-items-center justify-content-center bg-primary text-white fs-4 rounded-2">
-              <span class="about material-icons text-white">{{ about.icon }}</span>
+              <span class="about material-icons material-icons-outlined text-white">{{ about.icon }}</span>
             </div>
           </div>
           <h5>{{ about.title }}</h5>
@@ -182,7 +182,7 @@
             </div>
             <div class="card-footer bg-transparent mb-3">
               <a class="btn btn-outline-primary btn-sm text-uppercase" href="{{ project.link }}" target="_blank">
-                <span class="material-icons me-1">code</span>
+                <span class="material-icons material-icons-outlined me-1">code</span>
                 Source Code
               </a>
             </div>
@@ -206,19 +206,19 @@
         {% for contact in contact_data %}
         <li class="nav-item me-5">
           <a href="#" class="nav-link px-2 text-white">
-            <span class="material-icons contact-icon me-1">place</span>
+            <span class="material-icons material-icons-outlined contact-icon me-1">place</span>
             {{ contact.address }}
           </a>
         </li>
         <li class="nav-item me-5">
           <a href="#" class="nav-link px-2 text-white">
-            <span class="material-icons contact-icon me-1">email</span>
+            <span class="material-icons material-icons-outlined contact-icon me-1">email</span>
             {{ contact.email }}
           </a>
         </li>
         <li class="nav-item me-5">
           <a href="#" class="nav-link px-2 text-white">
-            <span class="material-icons contact-icon me-1">phone</span>
+            <span class="material-icons material-icons-outlined contact-icon me-1">phone</span>
             {{ contact.phone }}
           </a>
         </li>
