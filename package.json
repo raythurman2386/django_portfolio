@@ -4,10 +4,6 @@
     "scripts": {
         "build": "npm install"
     },
-    "dependencies": {
-        "bootstrap": "^5.2.3",
-        "material-icons": "^1.13.1"
-    },
     "engines": {
         "node": "v18.16.1"
     }
