@@ -19,7 +19,7 @@ DEBUG = True
 
 ALLOWED_ORIGINS = ['http://*', 'https://*']
 ALLOWED_HOSTS = ['rthurman2386.pythonanywhere.com',
-                 'raythurman.com', '127.0.0.1']
+                 'rthurman-portfolio-e6ccb38caa43.herokuapp.com','raythurman.com', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ALLOWED_ORIGINS.copy()
 
 
