@@ -1,3 +1,3 @@
 #!/bin/bash
-cd static/
+cd django_portfolio/static
 npm install
