@@ -38,7 +38,8 @@ body {
 /* ---------- ICONS ---------- */
 
 a {
-  .material-icons-outlined {
+  .material-icons-outlined,
+  .material-icons {
     font-size: 40px;
   }
 }
@@ -48,7 +49,8 @@ a {
 }
 
 .navbar-toggler {
-  .material-icons-outlined {
+  .material-icons-outlined,
+  .material-icons {
     color: $light;
     font-size: 30px;
   }
@@ -58,13 +60,15 @@ a {
   color: transparent;
 }
 
-.material-icons-outlined {
+.material-icons-outlined,
+.material-icons {
   vertical-align: middle;
   line-height: $line-height;
 }
 
 .about {
-  .material-icons-outlined {
+  .material-icons-outlined,
+  .material-icons {
     font-size: 50px;
   }
 }

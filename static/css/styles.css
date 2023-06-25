@@ -12055,7 +12055,8 @@ body {
 }
 
 /* ---------- ICONS ---------- */
-a .material-icons-outlined {
+a .material-icons-outlined,
+a .material-icons {
   font-size: 40px;
 }
 
@@ -12063,7 +12064,8 @@ a .material-icons-outlined {
   font-size: 30px;
 }
 
-.navbar-toggler .material-icons-outlined {
+.navbar-toggler .material-icons-outlined,
+.navbar-toggler .material-icons {
   color: #ffffff;
   font-size: 30px;
 }
@@ -12072,12 +12074,14 @@ a .material-icons-outlined {
   color: transparent;
 }
 
-.material-icons-outlined {
+.material-icons-outlined,
+.material-icons {
   vertical-align: middle;
   line-height: 1px;
 }
 
-.about .material-icons-outlined {
+.about .material-icons-outlined,
+.about .material-icons {
   font-size: 50px;
 }
 
