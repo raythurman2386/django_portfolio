@@ -16,11 +16,11 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_ORIGINS = ['http://*', 'https://*']
 ALLOWED_HOSTS = ['rthurman2386.pythonanywhere.com',
-                 'rthurman-portfolio-e6ccb38caa43.herokuapp.com','raythurman.com', '127.0.0.1']
+                 'rthurman-portfolio-e6ccb38caa43.herokuapp.com', 'raythurman.com', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ALLOWED_ORIGINS.copy()
 
 
@@ -36,7 +36,8 @@ INSTALLED_APPS = [
 
     # Local
     'portfolio',
-    'resume'
+    'resume',
+    'services'
 ]
 
 MIDDLEWARE = [
@@ -86,11 +87,11 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('DB_NAME'),
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD'),
-#         'HOST': os.getenv('DB_HOST'),
-#         'PORT': os.getenv('DB_PORT'),
+#         'NAME': os.environ.get('DB_NAME'),
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'HOST': os.environ.get('DB_HOST'),
+#         'PORT': os.environ.get('DB_PORT'),
 #     }
 # }
 
