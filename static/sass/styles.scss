@@ -209,3 +209,123 @@ a {
   }
 }
 
+/* CSS Animations to add to items */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes color-scroll {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.025);
+}
+
+.slide-in-left {
+  transform: translateX(-100%);
+  animation: slideInLeft 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  transform: translateX(100%);
+  animation: slideInRight 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-top {
+  transform: translateY(-100%);
+  animation: slideInTop 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.slide-in-bottom {
+  transform: translateY(100%);
+  animation: slideInBottom 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.background-transition {
+  background-color: #ff0000;
+  transition: background-color 0.3s ease;
+}
+
+.background-transition:hover {
+  background-color: #00ff00;
+}
+
+.logo {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
