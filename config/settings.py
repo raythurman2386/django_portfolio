@@ -22,6 +22,8 @@ ALLOWED_ORIGINS = ['http://*', 'https://*']
 ALLOWED_HOSTS = ['rthurman2386.pythonanywhere.com',
                  'rthurman-portfolio-e6ccb38caa43.herokuapp.com', 'raythurman.com', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ALLOWED_ORIGINS.copy()
+ANALYTICAL_TRACKING_METHOD = 'google'
+ANALYTICAL_TRACKING_SCRIPT = os.environ.get('ANALYTICS_ID')
 
 
 # Application definition
