@@ -1,0 +1,30 @@
+{% load static %}
+<div class="col-lg-4 mx-auto mb-5 hover-scale">
+    <div class="card h-100 shadow-lg border-0 bg-light">
+
+        {% if project.image.url %}
+        <img class="card-img-top" src="{{ project.image.url }}" alt="Project" loading="lazy">
+        {% else %}
+        <img class="card-img-top project-not-found" src="{% static 'images/no_image.png' %}" alt="Image Not Available"
+            loading="lazy">
+        {% endif %}
+
+        <div class="card-body p-4">
+            <h5 class="card-title mb-3">{{ project.name }}</h5>
+            <div class="mb-2">
+                {% for tag in project.tags.all %}
+                <div class="badge bg-primary rounded-pill">{{ tag.name }}</div>
+                {% endfor %}
+            </div>
+            <p class="card-text">
+                {{ project.description }}
+            </p>
+        </div>
+        <div class="card-footer bg-transparent mb-3">
+            <a class="btn btn-outline-primary btn-sm text-uppercase" href="{{ project.link }}" target="_blank">
+                <span class="material-icons material-icons-outlined me-1">code</span>
+                Source Code
+            </a>
+        </div>
+    </div>
+</div>
