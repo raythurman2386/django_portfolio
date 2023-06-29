@@ -24,10 +24,13 @@ def contact_submit(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
+
+            # Save to the db
             submission = ContactSubmission(
                 name=name, email=email, message=message)
             submission.save()
-            # Replace 'success_url' with the URL for the success page
+
+            # Replace with the URL for the success page
             return redirect('/')
     else:
         form = ContactForm()

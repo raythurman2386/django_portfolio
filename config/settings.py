@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
 
     # Local
     'portfolio',
-    'resume'
+    'resume',
+    'tests'
 ]
 
 MIDDLEWARE = [
@@ -78,23 +80,28 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Parse the database configuration from the environment variable
 db_from_env = dj_database_url.config(conn_max_age=600)
 
-# Update the default database configuration with Heroku database configuration
+
+# Database Setup
 DATABASES = {
-    'default': db_from_env
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_username',
+        'PASSWORD': 'your_password',
+        'HOST': 'your_host',
+        'PORT': 'your_port',
+    },
+    'test': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',
+    },
+    'production': db_from_env
 }
 
-
-# Dev Database Setup
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('DB_NAME'),
-#         'USER': os.environ.get('DB_USER'),
-#         'PASSWORD': os.environ.get('DB_PASSWORD'),
-#         'HOST': os.environ.get('DB_HOST'),
-#         'PORT': os.environ.get('DB_PORT'),
-#     }
-# }
+if 'test' in sys.argv:
+    DATABASES['default'] = DATABASES['test']
+elif 'runserver' not in sys.argv:
+    DATABASES['default'] = DATABASES['production']
 
 
 # Password validation
