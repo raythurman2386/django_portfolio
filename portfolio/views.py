@@ -1,14 +1,34 @@
 from django.views.generic.base import TemplateView
-from .models import Hero, About, Project, Contact, Footer
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+from .models import Hero, About, Project, Contact, ContactSubmission, Footer
+
 
 class IndexPageView(TemplateView):
-  template_name = 'index.html'
-  
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context['hero_data'] = Hero.objects.all()
-    context['about_data'] = About.objects.all()
-    context['project_data'] = Project.objects.all()
-    context['contact_data'] = Contact.objects.all()
-    context['footer_data'] = Footer.objects.all()
-    return context
+    template_name = 'portfolio/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['hero_data'] = Hero.objects.all()
+        context['about_data'] = About.objects.all()
+        context['project_data'] = Project.objects.all()
+        context['contact_data'] = Contact.objects.all()
+        context['footer_data'] = Footer.objects.all()
+        return context
+
+
+def contact_submit(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            submission = ContactSubmission(
+                name=name, email=email, message=message)
+            submission.save()
+            # Replace 'success_url' with the URL for the success page
+            return redirect('/')
+    else:
+        form = ContactForm()
+    return render(request, 'components/contact_form.html', {'form': form})
