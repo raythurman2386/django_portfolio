@@ -1,0 +1,34 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block content %}
+<div class="header">
+
+    {% include 'components/navbar.html' %}
+
+    <!-- Hero -->
+    {% include 'components/portfolio_header.html' %}
+    <!-- End Hero -->
+
+    <!-- Waves Container -->
+    {% include 'components/waves_container.html' %}
+    <!-- End Waves Container -->
+
+</div>
+
+<main>
+    <!-- About -->
+    {% include 'components/portfolio_about.html' %}
+    <!-- End About -->
+
+    <hr>
+
+    <!-- Projects -->
+    {% include 'components/portfolio_project.html' %}
+    <!-- End Projects -->
+
+    <!-- Contact -->
+    {% include 'components/contact.html' %}
+    <!-- End Contact-->
+
+</main>
+{% endblock %}
