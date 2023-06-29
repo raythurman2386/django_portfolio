@@ -83,25 +83,25 @@ db_from_env = dj_database_url.config(conn_max_age=600)
 
 # Database Setup
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'your_database_name',
-        'USER': 'your_username',
-        'PASSWORD': 'your_password',
-        'HOST': 'your_host',
-        'PORT': 'your_port',
-    },
+    'default': db_from_env,
     'test': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': ':memory:',
     },
-    'production': db_from_env
+    'dev': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
+    }
 }
 
+if 'runserver' in sys.argv:
+    DATABASES['default'] = DATABASES['dev']
 if 'test' in sys.argv:
     DATABASES['default'] = DATABASES['test']
-elif 'runserver' not in sys.argv:
-    DATABASES['default'] = DATABASES['production']
 
 
 # Password validation
