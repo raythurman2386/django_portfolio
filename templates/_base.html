@@ -1,53 +1,72 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ray Thurman - Software Developer Portfolio"
+    />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ray Thurman - Software Developer Portfolio">
-
-    <meta name="keywords"
-        content="web developer, soper oklahoma, software developer, portfolio, resume, raymond thurman, ray thurman">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Ray Thurman">
-    <meta name="og:title" content="Ray Thurman - Portfolio">
-    <meta name="og:description" content="Ray Thurman - Software Developer Portfolio">
+    <meta
+      name="keywords"
+      content="web developer, soper oklahoma, software developer, portfolio, resume, raymond thurman, ray thurman"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Ray Thurman" />
+    <meta name="og:title" content="Ray Thurman - Portfolio" />
+    <meta
+      name="og:description"
+      content="Ray Thurman - Software Developer Portfolio"
+    />
 
     <title>Ray Thurman - Portfolio</title>
-    <base href="/">
-    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <base href="/" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/favicon.ico' %}"
+    />
     <!-- Custom CSS -->
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container-fluid px-0 fade-in">
-        {% block content %}{% endblock %}
+      {% block content %}{% endblock %}
     </div>
     <!-- Footer -->
     <footer class="text-center py-4">
-        <div class="container px-5 mb-2">
-            Copyright &copy;
-            <script>document.write(new Date().getFullYear())</script> Ray Thurman.
-        </div>
+      <div class="container px-5 mb-2">
+        Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Ray Thurman.
+      </div>
     </footer>
     <!-- End Footer -->
 
     <!-- Bootstrap JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D97LGKNPY"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8D97LGKNPY"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        gtag('config', 'G-8D97LGKNPY');
+      gtag("config", "G-8D97LGKNPY");
     </script>
-
-</body>
-
+  </body>
 </html>
