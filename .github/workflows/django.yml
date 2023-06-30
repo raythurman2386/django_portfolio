@@ -30,9 +30,17 @@ jobs:
         run: |
           python manage.py test --pattern="*_tests.py"
       - name: Deploy to Heroku
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
         run: |
           # Install Heroku CLI
           curl https://cli-assets.heroku.com/install.sh | sh
+
+          # Login to Heroku using the API key or credentials
+          echo $HEROKU_API_KEY | heroku login -i
+
+          # Add the Heroku Git remote
+          heroku git:remote --app rthurman-portfolio
 
           # Push the branch to Heroku (replace 'main' with your branch name if needed)
           git push heroku main
