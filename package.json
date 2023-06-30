@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "build": "npm install",
+        "test": "python manage.py test --pattern='*_tests.py'",
         "deploy": "npm run test && git push heroku main"
     },
     "engines": {
