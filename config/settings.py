@@ -25,6 +25,7 @@ ALLOWED_HOSTS = ['rthurman2386.pythonanywhere.com',
 CSRF_TRUSTED_ORIGINS = ALLOWED_ORIGINS.copy()
 ANALYTICAL_TRACKING_METHOD = 'google'
 ANALYTICAL_TRACKING_SCRIPT = os.environ.get('ANALYTICS_ID')
+GOOGLE_ANALYTICS_GTAG_PROPERTY_ID = os.environ.get('ANALYTICS_ID')
 
 
 # Application definition
@@ -37,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Analytics
+    'analytical',
+
     # Local
     'portfolio',
     'resume',
-    'tests'
+    'tests',
 ]
 
 MIDDLEWARE = [
