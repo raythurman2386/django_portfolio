@@ -12299,7 +12299,33 @@ a .material-icons {
   }
 }
 /* Shrinking waves for mobile */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .waves {
+    height: 25px;
+    min-height: 25px;
+  }
+  .content {
+    height: 45vh;
+  }
+  .hero-image {
+    height: 30%;
+  }
+}
+/* Adjustments for smaller tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+  .waves {
+    height: 35px;
+    min-height: 35px;
+  }
+  .content {
+    height: 35vh;
+  }
+  .hero-image {
+    height: 45%;
+  }
+}
+/* Adjustments for larger tablets and small desktops */
+@media (min-width: 768px) and (max-width: 1023px) {
   .waves {
     height: 40px;
     min-height: 40px;
@@ -12309,6 +12335,32 @@ a .material-icons {
   }
   .hero-image {
     height: 50%;
+  }
+}
+/* Adjustments for medium-sized desktop screens */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .waves {
+    height: 45px;
+    min-height: 45px;
+  }
+  .content {
+    height: 25vh;
+  }
+  .hero-image {
+    height: 55%;
+  }
+}
+/* Adjustments for larger desktop screens */
+@media (min-width: 1200px) {
+  .waves {
+    height: 50px;
+    min-height: 50px;
+  }
+  .content {
+    height: 20vh;
+  }
+  .hero-image {
+    height: 60%;
   }
 }
 /* CSS Animations to add to items */
