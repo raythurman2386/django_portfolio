@@ -29,6 +29,3 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           python manage.py test --pattern="*_tests.py"
-      - name: Deploy to Heroku
-        run: |
-          git push heroku main
