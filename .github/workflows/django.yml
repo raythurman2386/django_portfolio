@@ -36,9 +36,6 @@ jobs:
           # Install Heroku CLI
           curl https://cli-assets.heroku.com/install.sh | sh
 
-          # Login to Heroku using the API key or credentials
-          echo $HEROKU_API_KEY | heroku login -i
-
           # Add the Heroku Git remote
           heroku git:remote --app rthurman-portfolio
 
