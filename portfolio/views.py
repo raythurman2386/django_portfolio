@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
 from .forms import ContactForm
 from .models import Hero, About, Project, Contact, ContactSubmission, Footer
 
@@ -29,6 +30,12 @@ def contact_submit(request):
             submission = ContactSubmission(
                 name=name, email=email, message=message)
             submission.save()
+
+            # Send an email notification
+            subject = '*** PORTFOLIO: Contact Submission ***'
+            email_message = f'Name: {name}\nEmail: {email}\nMessage: {message}'
+            send_mail(subject, email_message, 'raymondthurman5@gmail.com',
+                      ['raymondthurman5@gmail.com'])
 
             # Replace with the URL for the success page
             return redirect('/')
