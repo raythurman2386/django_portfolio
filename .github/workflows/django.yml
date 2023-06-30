@@ -30,8 +30,6 @@ jobs:
         run: |
           python manage.py test --pattern="*_tests.py"
       - name: Deploy to Heroku
-        env:
-          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
         run: |
           # Install Heroku CLI
           curl https://cli-assets.heroku.com/install.sh | sh
