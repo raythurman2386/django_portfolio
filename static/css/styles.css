@@ -12321,7 +12321,7 @@ a .material-icons {
     height: 35vh;
   }
   .hero-image {
-    height: 45%;
+    height: 32%;
   }
 }
 /* Adjustments for larger tablets and small desktops */
@@ -12334,7 +12334,7 @@ a .material-icons {
     height: 30vh;
   }
   .hero-image {
-    height: 50%;
+    height: 35%;
   }
 }
 /* Adjustments for medium-sized desktop screens */
@@ -12347,7 +12347,7 @@ a .material-icons {
     height: 25vh;
   }
   .hero-image {
-    height: 55%;
+    height: 40%;
   }
 }
 /* Adjustments for larger desktop screens */

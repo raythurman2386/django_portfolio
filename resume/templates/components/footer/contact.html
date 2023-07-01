@@ -1,34 +1,37 @@
 {% load static %}
-<section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
-    <div class="container">
-        {% if contact_data %}
-        <ul class="nav justify-content-center my-3">
-            {% for contact in contact_data %}
-            <li class="nav-item me-5">
-                <a href="#" class="nav-link px-2 text-white">
-                    <span class="material-icons material-icons-outlined contact-icon me-1">place</span>
-                    {{ contact.address }}
-                </a>
-            </li>
-            <li class="nav-item me-5">
-                <a href="#" class="nav-link px-2 text-white">
-                    <span class="material-icons material-icons-outlined contact-icon me-1">email</span>
-                    {{ contact.email }}
-                </a>
-            </li>
-            <li class="nav-item me-5">
-                <a href="#" class="nav-link px-2 text-white">
-                    <span class="material-icons material-icons-outlined contact-icon me-1">phone</span>
-                    {{ contact.phone }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <h5 class="bg-primary text-white text-center">No Data</h5>
-        {% endif %}
-
-        <!-- Contact Form -->
-        <!-- End Contact Form -->
-    </div>
+<section id="contact" class="bg-primary p-2 p-md-5 my-5">
+  <div class="container">
+    {% if contact_data %}
+    <ul class="nav justify-content-center my-3">
+      {% for contact in contact_data %}
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >place</span
+          >
+          {{ contact.address }}
+        </a>
+      </li>
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >email</span
+          >
+          {{ contact.email }}
+        </a>
+      </li>
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >phone</span
+          >
+          {{ contact.phone }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <h5 class="bg-primary text-white text-center">No Data</h5>
+    {% endif %}
+  </div>
 </section>

@@ -20,8 +20,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_ORIGINS = ['http://*', 'https://*']
-ALLOWED_HOSTS = ['rthurman2386.pythonanywhere.com',
-                 'rthurman-portfolio-e6ccb38caa43.herokuapp.com', 'www.raymondthurman.com', '127.0.0.1']
+ALLOWED_HOSTS = ['rthurman-portfolio-e6ccb38caa43.herokuapp.com',
+                 'www.raymondthurman.com', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ALLOWED_ORIGINS.copy()
 ANALYTICAL_TRACKING_METHOD = 'google'
 ANALYTICAL_TRACKING_SCRIPT = os.environ.get('ANALYTICS_ID')
@@ -146,19 +146,12 @@ STATIC_URL = 'static/'
 
 # Location where Django collects all static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# Python Anywhere locations
-# STATIC_ROOT = "/home/rthurman2386/django_portfolio/staticFiles"
 
 # Location where we will store our static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-# Python Anywhere locations
-# STATICFILES_DIRS = ["/home/rthurman2386/django_portfolio/static"]
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# Python Anywhere locations
-# MEDIA_ROOT = "home/rthurman2386/django_portfolio/media"
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
