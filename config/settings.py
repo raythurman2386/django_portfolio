@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     # Analytics
     'analytical',
 
+    # Bootstrap
+    'bootstrap5',
+
     # Local
     'portfolio',
     'resume',
