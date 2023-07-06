@@ -38,6 +38,7 @@ body {
 /* ---------- ICONS ---------- */
 
 a {
+
   .material-icons-outlined,
   .material-icons {
     font-size: 40px;
@@ -49,6 +50,7 @@ a {
 }
 
 .navbar-toggler {
+
   .material-icons-outlined,
   .material-icons {
     color: $light;
@@ -67,6 +69,7 @@ a {
 }
 
 .about {
+
   .material-icons-outlined,
   .material-icons {
     font-size: 50px;
@@ -95,7 +98,7 @@ a {
 
 .header {
   position: relative;
-  background: linear-gradient(60deg, rgba(48,69,41,1) 0%, rgba(63,90,54,1) 100%);
+  background: linear-gradient(60deg, rgba(48, 69, 41, 1) 0%, rgba(63, 90, 54, 1) 100%);
   color: $light;
 }
 
@@ -131,7 +134,7 @@ a {
 
 .custom-gradient {
   position: relative;
-  background: linear-gradient(60deg, rgba(48,69,41,1) 0%, rgba(63,90,54,1) 100%);
+  background: linear-gradient(60deg, rgba(48, 69, 41, 1) 0%, rgba(63, 90, 54, 1) 100%);
   color: $light;
 }
 
@@ -152,7 +155,7 @@ a {
 
 .parallax {
   use {
-    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
   }
 }
 
@@ -186,10 +189,11 @@ a {
 
 @keyframes move-forever {
   0% {
-   transform: translate3d(-90px,0,0);
+    transform: translate3d(-90px, 0, 0);
   }
-  100% { 
-    transform: translate3d(85px,0,0);
+
+  100% {
+    transform: translate3d(85px, 0, 0);
   }
 }
 
@@ -250,7 +254,7 @@ a {
 
   .content {
     height: 25vh;
-    
+
   }
 
   .hero-image {
