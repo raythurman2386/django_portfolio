@@ -5,6 +5,6 @@ app_name = 'blog'
 
 urlpatterns = [
     path('', BlogPageView.as_view(), name='post-list'),
-    path('<int:pk>/', PostDetailView.as_view(), name='post-detail'),
-    path('<int:pk>/comment/', add_comment, name='add-comment')
+    path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('post/<int:pk>/comment/', add_comment, name='add-comment')
 ]
