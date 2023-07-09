@@ -7,14 +7,14 @@
               <div class="col-md-6 m-auto">
                   <div class="my-5">
                     <h2 class="text-center fw-bold mb-2">{{ post.title }}</h2>
-                    <p class="text-center text-muted">Posted by {{ post.author.username }} on {{ post.created_at|date:"F d, Y" }}</p>
+                    <p class="text-center text-info">Posted by {{ post.author.username }} on {{ post.created_at|date:"F d, Y" }}</p>
                   </div>
               </div>
             </div>
         </div>
     </header>
 </div>
-<div class="container">
+<div class="container py-5">
   <div class="card mb-4 border-light">
     <div class="card-body">
       {{ post.content|safe }}
@@ -25,6 +25,14 @@
   <hr>
 
   {%if user.is_authenticated %}
+  <form method="post" action="{% url 'blog:add-comment' post.pk %}" class="py-3">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="content" class="form-label">Your Comment</label>
+      <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
     {% for comment in post.comment_set.all %}
       <div class="card mb-3">
         <div class="card-body">
@@ -38,6 +46,6 @@
   {% else %}
       <p>Please login or register to comment.</p>
   {% endif %}
-</div>
   <!-- Add comment form here -->
+</div>
 {% endblock %}

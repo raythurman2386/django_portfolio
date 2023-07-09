@@ -31,12 +31,12 @@
     />
     <!-- Custom CSS -->
     {% bootstrap_css %}
-    {% bootstrap_javascript %}
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     <link
     href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet"
     />
+    {% bootstrap_javascript %}
   </head>
 
   <body>
@@ -91,7 +91,7 @@
                               >Logout</a
                               >
                           </li>
-                              {% else %}
+                          {% else %}
                           <li class="nav-item">
                               <a class="nav-link me-lg-3 text-white text-uppercase" href="/accounts/login"
                               >Login</a
