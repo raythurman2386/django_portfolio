@@ -22,7 +22,7 @@
       content="Raymond Thurman is a professional freelance web and software developer serving Choctaw and Pushmataha Counties in Southwestern Oklahoma. Contact Raymond for high-quality web development services."
     />
 
-    <title>Raymond Thurman - Portfolio</title>
+    <title>{% block title %}Raymond Thurman - Portfolio{% endblock %}</title>
     <base href="/" />
     <link
       rel="icon"
@@ -40,7 +40,7 @@
   </head>
 
   <body>
-    <div class="base_nav">
+    <div class="base_navbar">
       <nav class="navbar navbar-expand-lg shadow">
           <div class="container-fluid">
               <a
