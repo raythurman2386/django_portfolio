@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='login container'>
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="POST" action="{% url 'login' %}">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="username" class="form-label">Username:</label>
+    <input type="text" name="username" class="form-control" required><br>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password:</label>
+    <input type="password" name="password" class="form-control" required><br>
+
+    <input type="submit" value="Login" class="btn btn-success">
+  </div>
+</form>
+</div>
+{% endblock %}
