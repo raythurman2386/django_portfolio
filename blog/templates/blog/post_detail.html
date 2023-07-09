@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2 class="mb-4">{{ post.title }}</h2>
+  <p class="text-muted">Posted by {{ post.author.username }} on {{ post.created_at|date:"F d, Y" }}</p>
+  <hr>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      {{ post.content|safe }}
+    </div>
+  </div>
+
+  <h3>Comments</h3>
+  <hr>
+
+  {% for comment in post.comment_set.all %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <p>{{ comment.content }}</p>
+        <p class="text-muted">Comment by {{ comment.author.username }} on {{ comment.created_at|date:"F d, Y" }}</p>
+      </div>
+    </div>
+  {% empty %}
+    <p>No comments yet.</p>
+  {% endfor %}
+
+  <!-- Add comment form here -->
+{% endblock %}

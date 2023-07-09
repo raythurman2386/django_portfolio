@@ -1,6 +1,5 @@
 import os
 import sys
-from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
 
@@ -32,21 +31,6 @@ GOOGLE_ANALYTICS_GTAG_PROPERTY_ID = os.environ.get('ANALYTICS_ID')
 # Application definition
 
 INSTALLED_APPS = [
-    # Wagtail Apps
-    'wagtail.contrib.forms',
-    'wagtail.contrib.redirects',
-    'wagtail.embeds',
-    'wagtail.sites',
-    'wagtail.users',
-    'wagtail.snippets',
-    'wagtail.documents',
-    'wagtail.images',
-    'wagtail.search',
-    'wagtail.admin',
-    'wagtail',
-    'modelcluster',
-    'taggit',
-
     # Base Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -62,14 +46,14 @@ INSTALLED_APPS = [
     'bootstrap5',
 
     # Local
+    'accounts',
+    'blog',
     'portfolio',
     'resume',
     'tests',
-    'blog',
 ]
 
 MIDDLEWARE = [
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -190,9 +174,6 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-
-WAGTAIL_SITE_NAME = 'Raymond Thurman Portfolio'
-WAGTAILADMIN_BASE_URL = 'https://www.raymondthurman.com/cms'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
