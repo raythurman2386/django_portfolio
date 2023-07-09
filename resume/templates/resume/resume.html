@@ -1,8 +1,29 @@
 {% extends "base.html" %} {% block content %}
 <div class="header">
-  {% include 'components/navbar/resume_navbar.html' %}
   <!-- Header -->
-  {% include 'components/header/resume_header.html' %}
+  <header id="summary" class="text-center py-5">
+    <div class="container">
+      {% if summary_data %}
+      <div class="row">
+        {% for summary in summary_data %}
+        <div class="col-lg-12 mx-auto my-5">
+          <h2 class="fw-bold">{{ summary.title }}</h2>
+          <p class="text-white mb-0">{{ summary.description }}</p>
+        </div>
+        {% endfor %}
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <a
+            href="{% url 'download_resume' %}"
+            class="btn btn-light btn-lg text-uppercase px-4 py-2 me-sm-3"
+            >Download Resume</a
+          >
+        </div>
+      </div>
+      {% else %}
+      <h5 class="text-primary text-center">No Data</h5>
+      {% endif %}
+    </div>
+  </header>
   <!-- End Header -->
 
   <!-- Waves Container -->
@@ -77,7 +98,42 @@
     </div>
   </div>
   <!-- Contact -->
-  {% include 'components/footer/contact.html' %}
+  <section id="contact" class="bg-primary p-2 p-md-5 my-5">
+  <div class="container">
+    {% if contact_data %}
+    <ul class="nav justify-content-center my-3">
+      {% for contact in contact_data %}
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >place</span
+          >
+          {{ contact.address }}
+        </a>
+      </li>
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >email</span
+          >
+          {{ contact.email }}
+        </a>
+      </li>
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >phone</span
+          >
+          {{ contact.phone }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <h5 class="bg-primary text-white text-center">No Data</h5>
+    {% endif %}
+  </div>
+</section>
   <!-- End Contact-->
 </main>
 {% endblock %}

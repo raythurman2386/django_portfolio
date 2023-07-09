@@ -93,14 +93,7 @@ db_from_env = dj_database_url.config(conn_max_age=600)
 
 # Database Setup
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
-    },
+    'default': {},
     'test': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': ':memory:',
@@ -112,13 +105,16 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT'),
-    }
+    },
+    'prod': db_from_env
 }
 
 if 'runserver' in sys.argv:
     DATABASES['default'] = DATABASES['dev']
-if 'test' in sys.argv:
+elif 'test' in sys.argv:
     DATABASES['default'] = DATABASES['test']
+else:
+    DATABASES['default'] = DATABASES['prod']
 
 
 # Password validation
@@ -179,6 +175,9 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/blog'
+LOGOUT_REDIRECT_URL = '/'
 
 # Email Backend Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -189,8 +189,14 @@ a .material-icons {
   height: 100px;
 }
 
-.header {
+.base_nav {
   position: relative;
+  background: linear-gradient(60deg, rgb(48, 69, 41) 0%, rgb(63, 90, 54) 100%);
+  color: #ffffff;
+  z-index: 999;
+}
+
+.header {
   background: linear-gradient(60deg, rgb(48, 69, 41) 0%, rgb(63, 90, 54) 100%);
   color: #ffffff;
 }
