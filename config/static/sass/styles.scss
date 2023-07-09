@@ -96,14 +96,8 @@ a {
   height: 100px;
 }
 
-.base_navbar {
-  position: relative;
-  background: linear-gradient(60deg, rgba(48, 69, 41, 1) 0%, rgba(63, 90, 54, 1) 100%);
-  color: $light;
-  z-index: 999;
-}
-
 .header {
+  position: relative;
   background: linear-gradient(60deg, rgba(48, 69, 41, 1) 0%, rgba(63, 90, 54, 1) 100%);
   color: $light;
 }

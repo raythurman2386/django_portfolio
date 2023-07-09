@@ -1,9 +1,41 @@
-{% extends "_base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <div class="header">
-  {% include 'components/navbar.html' %}
-
   <!-- Hero -->
-  {% include 'components/portfolio_header.html' %}
+  <header class="py-3">
+    <div class="container px-5">
+      {% if hero_data %}
+      <div class="row align-items-center">
+        {% for hero in hero_data %}
+        <div class="col-md-6 mx-auto">
+          <div class="my-5">
+            <h2 class="text-center fw-bold mb-2">{{ hero.title }}</h2>
+            <h2 class="text-center fw-bold mb-2">{{ hero.subtitle }}</h2>
+            <p class="lead text-center text-white mb-4">{{ hero.description }}</p>
+          </div>
+        </div>
+        <div class="col-md-6 justify-content-center">
+          {# Image by catalyststuff on Freepik #} {% if hero.image.url %}
+          <img
+            class="card-img-top"
+            src="{% static 'images/hero.png' %}"
+            alt="Hero Image"
+            loading="lazy"
+          />
+          {% else %}
+          <img
+            class="card-img-top"
+            src="{% static 'images/hero.png' %}"
+            alt="Alternate Hero Image"
+            loading="lazy"
+          />
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <h5 class="text-white text-center">No Data</h5>
+      {% endif %}
+    </div>
+  </header>
   <!-- End Hero -->
 
   <!-- Waves Container -->
@@ -13,17 +45,109 @@
 
 <main>
   <!-- About -->
-  {% include 'components/portfolio_about.html' %}
+  <section id="about" class="text-center py-5">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <h2 class="fw-bold">About</h2>
+        <p class="lead text-muted mb-5">
+          I am a freelance full stack developer who builds elegant, fast, and
+          scalable web applications.
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      {% if about_data %}
+      <div class="row">
+        {% for about in about_data %}
+        <div class="col-lg-4 mx-auto mb-5">
+          <div class="d-flex mb-5 justify-content-center">
+            <div
+              class="about-icon d-inline-flex align-items-center justify-content-center bg-primary text-white fs-4 rounded-2"
+            >
+              <span
+                class="about material-icons material-icons-outlined text-white"
+                >{{ about.icon }}</span
+              >
+            </div>
+          </div>
+          <h5>{{ about.title }}</h5>
+          <p class="text-muted mb-0">{{ about.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <h5 class="text-primary text-center">No Data</h5>
+      {% endif %}
+    </div>
+  </section>
   <!-- End About -->
 
   <hr />
 
   <!-- Projects -->
-  {% include 'components/portfolio_project.html' %}
+  <section id="projects" class="text-center py-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <h2 class="fw-bold">Projects</h2>
+            <p class="lead text-muted mb-5">
+                View some of my favorite projects
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        {% if project_data %}
+        <div class="row">
+
+            {% for project in project_data %}
+            {% include 'components/project_card.html' %}
+            {% endfor %}
+
+        </div>
+        {% else %}
+        <h5 class="text-primary text-center">No Data</h5>
+        {% endif %}
+    </div>
+  </section>
   <!-- End Projects -->
 
   <!-- Contact -->
-  {% include 'components/contact.html' %}
+  <section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
+    {% include 'components/contact_form.html' %}
+    <div class="container">
+      {% if contact_data %}
+      <ul class="nav justify-content-center my-3">
+        {% for contact in contact_data %}
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <span class="material-icons material-icons-outlined contact-icon me-1"
+              >place</span
+            >
+            {{ contact.address }}
+          </a>
+        </li>
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <span class="material-icons material-icons-outlined contact-icon me-1"
+              >email</span
+            >
+            {{ contact.email }}
+          </a>
+        </li>
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <span class="material-icons material-icons-outlined contact-icon me-1"
+              >phone</span
+            >
+            {{ contact.phone }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <h5 class="bg-primary text-white text-center">No Data</h5>
+      {% endif %}
+    </div>
+  </section>
   <!-- End Contact-->
 </main>
 {% endblock %}

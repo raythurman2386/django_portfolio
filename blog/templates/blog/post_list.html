@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Raymond Thurman - Blog of Randomness{% endblock title %}
+{% block content %}
+<div class="header">
+  <header class="text-center py-5">
+    <div class="container">
+      {% if hero %}
+      <div class="row">
+        {% for hero in hero %}
+        <div class="col-lg-12 mx-auto my-5">
+          <h2 class="fw-bold">{{ hero.title }}</h2>
+          <p class="text-white mb-0">{{ hero.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <h5 class="text-primary text-center py-5">Hmmm...No posts just yet, come back in just a bit. :)</h5>
+      {% endif %}
+    </div>
+  </header>
+  {% include 'components/waves_container.html' %}
+</div>
+
+{% comment %} Posts {% endcomment %}
+<div class="container m-auto py-5">
+  {% for post in posts %}
+    <div class="row">
+      <div class="col">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.content|truncatechars:150 }}</p>
+            <a href="{% url 'blog:post-detail' post.id %}" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+  {% if is_paginated %}
+    <nav aria-label="Blog Posts Pagination" class="mt-4">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+          </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">{{ num }}</a>
+            </li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+    <!-- Contact -->
+  <section id="contact" class="bg-primary p-2 p-md-5 my-5">
+  <div class="container">
+    {% if contact_data %}
+    <ul class="nav justify-content-center my-3">
+      {% for contact in contact_data %}
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >place</span
+          >
+          {{ contact.address }}
+        </a>
+      </li>
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >email</span
+          >
+          {{ contact.email }}
+        </a>
+      </li>
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >phone</span
+          >
+          {{ contact.phone }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <h5 class="bg-primary text-white text-center">No Data</h5>
+    {% endif %}
+  </div>
+</section>
+  <!-- End Contact-->
+{% endblock %}

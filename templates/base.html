@@ -1,0 +1,127 @@
+{% load static %} {% load google_analytics_gtag %} {% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% google_analytics_gtag %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Raymond Thurman is a professional freelance web and software developer serving Choctaw and Pushmataha Counties in Southwestern Oklahoma. Contact Raymond for high-quality web development services."
+    />
+
+    <meta
+      name="keywords"
+      content="web developer, soper oklahoma, software developer, portfolio, resume, raymond thurman, ray thurman, Choctaw, Pushamataha, Push County"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Ray Thurman" />
+    <meta name="og:title" content="Raymond Thurman" />
+    <meta
+      name="og:description"
+      content="Raymond Thurman is a professional freelance web and software developer serving Choctaw and Pushmataha Counties in Southwestern Oklahoma. Contact Raymond for high-quality web development services."
+    />
+
+    <title>{% block title %}Raymond Thurman - Portfolio{% endblock %}</title>
+    <base href="/" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/favicon.ico' %}"
+    />
+    <!-- Custom CSS -->
+    {% bootstrap_css %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+    />
+    {% bootstrap_javascript %}
+  </head>
+
+  <body>
+    <div class="base_navbar">
+      <nav class="navbar navbar-expand-lg shadow">
+          <div class="container-fluid">
+              <a
+              class="col-md-3 d-flex align-items-center mb-0 mb-md-1 mb-lg-2 h4 text-white text-decoration-none text-uppercase fw-bolder"
+              href="/"
+              >
+              <span class="material-icons material-icons-outlined ms-2 me-3"
+                  >logo_dev</span
+              >
+              Ray
+              <span class="d-lg-inline-block d-none">&nbsp;Thurman</span>
+              </a>
+
+              <button
+              type="button"
+              class="navbar-toggler"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              >
+              <span class="material-icons material-icons-outlined text-white"
+                  >menu</span
+              >
+              </button>
+              <div class="container px-3">
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                          <li class="nav-item">
+                              <a class="nav-link me-lg-3 text-white text-uppercase" href="/"
+                              >Home</a
+                              >
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link me-lg-3 text-white text-uppercase" href="/resume"
+                              >Resume</a
+                              >
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link me-lg-3 text-white text-uppercase" href="/blog"
+                              >Blog</a
+                              >
+                          </li>
+                          {% if user.is_authenticated %}
+                          <li class="nav-item">
+                              <a class="nav-link me-lg-3 text-white text-uppercase" href="/accounts/logout"
+                              >Logout</a
+                              >
+                          </li>
+                          {% else %}
+                          <li class="nav-item">
+                              <a class="nav-link me-lg-3 text-white text-uppercase" href="/accounts/login"
+                              >Login</a
+                              >
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link me-lg-3 text-white text-uppercase" href="/accounts/register"
+                              >Register</a
+                              >
+                          </li>
+                          {% endif %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </nav>
+    </div>
+    <div class="container-fluid px-0 fade-in">
+      {% block content %}{% endblock %}
+    </div>
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <div class="container px-5 mb-2">
+        Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Raymond Thurman.
+      </div>
+    </footer>
+    <!-- End Footer -->
+  </body>
+</html>
