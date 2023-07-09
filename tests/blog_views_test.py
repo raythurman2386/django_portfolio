@@ -41,3 +41,12 @@ class ViewsTestCase(TestCase):
         # Test pagination
         paginator = Paginator(response.context_data['posts'], 10)
         self.assertEqual(paginator.num_pages, 1)  # Check the number of pages
+
+    def test_post_detail_view(self):
+        view = PostDetailView.as_view()
+        request = self.factory.get(
+            reverse('post-detail:id', kwargs={'id': self.post.id}))
+        response = view(request, id=self.post.id)
+        self.assertEqual(response.status_code, 200)
+        # Check if the correct post object is in the context
+        self.assertEqual(response.context_data['post'], self.post)
