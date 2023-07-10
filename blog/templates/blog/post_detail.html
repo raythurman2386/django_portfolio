@@ -85,7 +85,9 @@
 <div class="container py-5">
   <div class="card mb-4 border-light">
     <div class="card-body">
-      {{ post.content|safe }}
+      {% autoescape off %}
+      {{post.content|safe}}
+      {% endautoescape %}
     </div>
   </div>
 

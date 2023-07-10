@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.utils.html import escape
 
 
 class Hero(models.Model):
@@ -41,6 +42,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
 
 
 class Comment(models.Model):
