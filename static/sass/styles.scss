@@ -375,15 +375,6 @@ a {
   }
 }
 
-.background-transition {
-  background-color: #ff0000;
-  transition: background-color 0.3s ease;
-}
-
-.background-transition:hover {
-  background-color: #00ff00;
-}
-
 .logo {
   animation: pulse 2s ease-in-out infinite;
 }
