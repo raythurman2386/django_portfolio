@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.utils.html import escape
 
 
 class Hero(models.Model):
@@ -39,6 +38,14 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def clean_content(self):
+        cleaned_content = self.content
+        return cleaned_content
+
+    def save(self, *args, **kwargs):
+        self.content = self.clean_content()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
