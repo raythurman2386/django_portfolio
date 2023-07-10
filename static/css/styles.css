@@ -12087,7 +12087,6 @@ a .material-icons {
 /* ---------- NAVBAR ---------- */
 .portfolio_navbar {
   position: relative;
-  background: linear-gradient(60deg, rgb(48, 69, 41) 0%, rgb(63, 90, 54) 100%);
   color: #ffffff;
 }
 
