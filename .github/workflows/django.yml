@@ -27,5 +27,6 @@ jobs:
       - name: Run Tests
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DB_ENV: ${{ secrets.DB_ENV }}
         run: |
           python manage.py test --pattern="*_test.py"
