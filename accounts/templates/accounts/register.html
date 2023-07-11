@@ -70,16 +70,37 @@
           </div>
       </nav>
 </div>
-<div class='login container py-5'>
-{% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+<div class="login container py-5">
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      <p>Your passwords didn't match. Please try again. If the problem persists, please contact the administrator.</p>
+    </div>
+  {% endif %}
 
-    <form method="post" class="my-5">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-success">Register</button>
-    </form>
-
+  <form method="post" class="my-5">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required><br>
+    </div>
+    <div class="mb-3">
+      <ul class="list-unstyled">
+        <li class="list-item">Your password can’t be too similar to your other personal information.</li>
+        <li class="list-item">Your password must contain at least 8 characters.</li>
+        <li class="list-item">Your password can’t be a commonly used password.</li>
+        <li class="list-item">Your password can’t be entirely numeric.</li>
+        <li class="list-item">Ensure both passwords are the same!</li>
+      </ul>
+    </div>
+    <div class="mb-3">
+      <label for="password1" class="form-label">Password</label>
+      <input type="password" name="password1" class="form-control" required><br>
+    </div>
+    <div class="mb-3">
+      <label for="password2" class="form-label">Password Confirmation</label>
+      <input type="password" name="password2" class="form-control" required><br>
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+  </form>
 </div>
 {% endblock %}
