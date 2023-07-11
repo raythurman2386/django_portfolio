@@ -54,10 +54,6 @@ pip install -r requirements.txt
 From the **root** directory run:
 
 ```bash
-cd static
-```
-
-```bash
 npm install
 ```
 

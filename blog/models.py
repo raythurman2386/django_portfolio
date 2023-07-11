@@ -39,8 +39,20 @@ class Post(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def clean_content(self):
+        cleaned_content = self.content
+        return cleaned_content
+
+    def save(self, *args, **kwargs):
+        self.content = self.clean_content()
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
 
 
 class Comment(models.Model):
