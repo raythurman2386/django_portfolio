@@ -93,7 +93,7 @@ db_from_env = dj_database_url.config(conn_max_age=600)
 
 # Database Setup
 DATABASES = {
-    'default': db_from_env,
+    'default': {},
     'test': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': ':memory:',
@@ -105,13 +105,11 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT'),
-    }
+    },
+    'prod': db_from_env,
 }
 
-if 'runserver' in sys.argv:
-    DATABASES['default'] = DATABASES['dev']
-elif 'test' in sys.argv:
-    DATABASES['default'] = DATABASES['test']
+DATABASES['default'] = DATABASES[os.environ.get('DB_ENV')]
 
 
 # Password validation
