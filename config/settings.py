@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -92,7 +93,8 @@ db_from_env = dj_database_url.config(conn_max_age=600)
 
 # Database Setup
 DATABASES = {
-    'default': {
+    'default': {},
+    'test': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': ':memory:',
     },
@@ -151,6 +153,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Location where we will store our static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
