@@ -1,5 +1,4 @@
 import os
-import sys
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
@@ -93,8 +92,7 @@ db_from_env = dj_database_url.config(conn_max_age=600)
 
 # Database Setup
 DATABASES = {
-    'default': {},
-    'test': {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': ':memory:',
     },

@@ -29,4 +29,4 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           DB_ENV: ${{ secrets.DB_ENV }}
         run: |
-          python manage.py test --pattern="*_test.py"
+          python manage.py test --pattern="*_test.py" --no-input
