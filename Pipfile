@@ -17,6 +17,7 @@ python-dotenv = "==0.21.1"
 sqlparse = "==0.4.3"
 tzdata = "==2022.7"
 waitress = "==2.1.2"
+whitenoise = "==6.5.0"
 
 [dev-packages]
 
