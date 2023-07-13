@@ -6,7 +6,7 @@ from resume.views import ResumePageView
 
 class DownloadResumeViewTest(TestCase):
     def test_download_resume(self):
-        response = self.client.get(reverse('download_resume'))
+        response = self.client.get(reverse('download_resume'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(
             response.get('Content-Disposition'),
