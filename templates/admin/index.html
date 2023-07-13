@@ -12,21 +12,17 @@
 {% block nav-sidebar %}{% endblock %}
 
 {% block content %}
-<div id="content-main" class="container">
-  <div class="row">
-    <div class="col-md-12">
+<div id="content-main" class="col">
       {% include "admin/app_list.html" with app_list=app_list show_changelinks=True %}
-    </div>
-  </div>
 </div>
 {% endblock %}
 
 {% block sidebar %}
-<div id="content-related" class="container">
+<div class="col-12 col-lg-6">
     <div class="card">
         <div class="card-body">
-            <h2>{% translate 'Recent actions' %}</h2>
-            <h3>{% translate 'My actions' %}</h3>
+            <h2 class="card-title">{% translate 'Recent actions' %}</h2>
+            <h3 class="card-subtitle">{% translate 'My actions' %}</h3>
             {% load log %}
             {% get_admin_log 10 as admin_log for_user user %}
             {% if not admin_log %}

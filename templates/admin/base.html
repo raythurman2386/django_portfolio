@@ -62,7 +62,7 @@
             </div>
             {% block usertools %}
             {% if has_permission %}
-            <div id="user-tools" class="dropdown">
+            <div>
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     {% block welcome-msg %}
                         {% translate 'Welcome,' %}
@@ -72,23 +72,22 @@
                 <ul class="dropdown-menu dropdown-menu-end text-dark" aria-labelledby="userDropdown">
                     {% block userlinks %}
                         {% if site_url %}
-                            <li><a class="dropdown-item" href="{{ site_url }}">{% translate 'View site' %}</a></li>
+                            <li class="dropdown-item"><a class="text-dark" href="{{ site_url }}">{% translate 'View site' %}</a></li>
                         {% endif %}
                         {% if user.is_active and user.is_staff %}
                             {% url 'django-admindocs-docroot' as docsroot %}
                             {% if docsroot %}
-                                <li><a class="dropdown-item" href="{{ docsroot }}">{% translate 'Documentation' %}</a></li>
+                                <li class="dropdown-item"><a class="text-dark" href="{{ docsroot }}">{% translate 'Documentation' %}</a></li>
                             {% endif %}
                         {% endif %}
                         {% if user.has_usable_password %}
-                            <li><a class="dropdown-item" href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a></li>
+                            <li class="dropdown-item"><a class="text-dark" href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a></li>
                         {% endif %}
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#"><form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-item"><a class="text-dark" href="#"><form id="logout-form" method="post" action="{% url 'admin:logout' %}">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-link">{% translate 'Log out' %}</button>
+                            <button type="submit" class="btn btn-link text-dark">{% translate 'Log out' %}</button>
                         </form></a></li>
-                        <li><a class="dropdown-item" href="#">{% include "admin/color_theme_toggle.html" %}</a></li>
                     {% endblock %}
                 </ul>
             </div>
@@ -111,13 +110,13 @@
         {% endblock %}
         {% endif %}
 
-        <div class="main" id="main">
+        <div class="main my-3" id="main">
             {% if not is_popup and is_nav_sidebar_enabled %}
             {% block nav-sidebar %}
                 {% include "admin/nav_sidebar.html" %}
             {% endblock %}
             {% endif %}
-            <div id="content-start" class="content" tabindex="-1">
+            <div id="content-start" class="container" tabindex="-1">
                 {% block messages %}
                     {% if messages %}
                         <ul class="messagelist">{% for message in messages %}
@@ -126,7 +125,7 @@
                     {% endif %}
                 {% endblock messages %}
                 <!-- Content -->
-                <div id="content" class="row">
+                <div class="row">
                     {% block pretitle %}{% endblock %}
                     {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
                     {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
@@ -138,7 +137,7 @@
                     <br class="clear">
                 </div>
                 <!-- END Content -->
-                <footer class="text-center py-4">
+                <footer class="text-center my-5">
                   <div class="container px-5 mb-2">
                   Copyright &copy;
                   <script>
