@@ -18,6 +18,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 ALLOWED_ORIGINS = ['http://*', 'https://*']
 ALLOWED_HOSTS = ['rthurman-portfolio-e6ccb38caa43.herokuapp.com',
                  'www.raymondthurman.com', '127.0.0.1']
@@ -165,6 +169,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/blog'
 LOGOUT_REDIRECT_URL = '/'
+
+SITE_TITLE = 'Raymond Thurman - Portfolio'
 
 # Email Backend Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
