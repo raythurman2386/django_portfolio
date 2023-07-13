@@ -1,0 +1,40 @@
+{% load i18n %}
+
+<div class="actions">
+  {% block actions %}
+    {% block actions-form %}
+      {% for field in action_form %}
+        {% if field.label %}
+          <label class="form-label">{{ field.label }} {{ field }}</label>
+        {% else %}
+          {{ field }}
+        {% endif %}
+      {% endfor %}
+    {% endblock %}
+    {% block actions-submit %}
+      <button type="submit" class="btn btn-primary" title="{% translate "Run the selected action" %}" name="index" value="{{ action_index|default:0 }}">
+        {% translate "Go" %}
+      </button>
+    {% endblock %}
+    {% block actions-counter %}
+      {% if actions_selection_counter %}
+        <span class="action-counter" data-actions-icnt="{{ cl.result_list|length }}">{{ selection_note }}</span>
+        {% if cl.result_count != cl.result_list|length %}
+          <span class="all d-none">{{ selection_note_all }}</span>
+          <span class="question d-none">
+            <a href="#" title="{% translate "Click here to select the objects across all pages" %}">
+              {% blocktranslate with cl.result_count as total_count %}
+                Select all {{ total_count }} {{ module_name }}
+              {% endblocktranslate %}
+            </a>
+          </span>
+          <span class="clear d-none">
+            <a href="#">
+              {% translate "Clear selection" %}
+            </a>
+          </span>
+        {% endif %}
+      {% endif %}
+    {% endblock %}
+  {% endblock %}
+</div>
