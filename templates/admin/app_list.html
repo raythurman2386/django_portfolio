@@ -1,0 +1,48 @@
+{% load i18n %}
+
+{% if app_list %}
+  <div class="accordion" id="appAccordion">
+    {% for app in app_list %}
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="appHeading{{ forloop.counter }}">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#appCollapse{{ forloop.counter }}" aria-expanded="true" aria-controls="appCollapse{{ forloop.counter }}">
+            {{ app.name }}
+          </button>
+        </h2>
+        <div id="appCollapse{{ forloop.counter }}" class="accordion-collapse collapse {% if app.app_url in request.path|urlencode %}show{% endif %}" aria-labelledby="appHeading{{ forloop.counter }}" data-bs-parent="#appAccordion">
+          <div class="accordion-body">
+            <table class="table">
+              {% for model in app.models %}
+                <tr class="model-{{ model.object_name|lower }}{% if model.admin_url in request.path|urlencode %} current-model{% endif %}">
+                  {% if model.admin_url %}
+                    <th scope="row"><a href="{{ model.admin_url }}"{% if model.admin_url in request.path|urlencode %} aria-current="page"{% endif %}>{{ model.name }}</a></th>
+                  {% else %}
+                    <th scope="row">{{ model.name }}</th>
+                  {% endif %}
+
+                  {% if model.add_url %}
+                    <td><a href="{{ model.add_url }}" class="btn btn-primary text-light addlink">{% translate 'Add' %}</a></td>
+                  {% else %}
+                    <td></td>
+                  {% endif %}
+
+                  {% if model.admin_url and show_changelinks %}
+                    {% if model.view_only %}
+                      <td><a href="{{ model.admin_url }}" class="btn btn-secondary viewlink">{% translate 'View' %}</a></td>
+                    {% else %}
+                      <td><a href="{{ model.admin_url }}" class="btn btn-primary text-light changelink">{% translate 'Change' %}</a></td>
+                    {% endif %}
+                  {% elif show_changelinks %}
+                    <td></td>
+                  {% endif %}
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>{% translate 'You don’t have permission to view or edit anything.' %}</p>
+{% endif %}
