@@ -9,7 +9,8 @@ from blog.views import BlogPageView, PostDetailView
 class ViewsTestCase(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
-        self.user = User.objects.create_user(username="testuser", password="testpass")
+        self.user = User.objects.create_user(
+            username="testuser", password="testpass")
         self.hero = Hero.objects.create(
             title="Test Hero", description="This is a test hero."
         )
@@ -20,6 +21,7 @@ class ViewsTestCase(TestCase):
             id=1,
             title="Test Post",
             content="This is a test post content.",
+            description="This is a test post description.",
             slug="test-post",
             author=self.user,
         )
