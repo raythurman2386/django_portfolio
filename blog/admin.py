@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Hero, Category, Tag, Post, Comment, Contact
+
 # Register your models here.
 
 admin.site.register(Hero)

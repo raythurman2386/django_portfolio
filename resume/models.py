@@ -6,11 +6,11 @@ class Summary(models.Model):
     description = models.CharField(max_length=1000)
 
     class Meta:
-        verbose_name = 'Summary'
-        verbose_name_plural = 'Summary'
+        verbose_name = "Summary"
+        verbose_name_plural = "Summary"
 
     def __str__(self):
-        return '{0}'.format(self.title)
+        return "{0}".format(self.title)
 
 
 class Projects(models.Model):
@@ -18,11 +18,11 @@ class Projects(models.Model):
     description = models.CharField(max_length=1000)
 
     class Meta:
-        verbose_name = 'Projects'
-        verbose_name_plural = 'Projects'
+        verbose_name = "Projects"
+        verbose_name_plural = "Projects"
 
     def __str__(self):
-        return '{0}'.format(self.title)
+        return "{0}".format(self.title)
 
 
 class Employment(models.Model):
@@ -34,11 +34,11 @@ class Employment(models.Model):
     description = models.CharField(max_length=1000)
 
     class Meta:
-        verbose_name = 'Employment'
-        verbose_name_plural = 'Employment'
+        verbose_name = "Employment"
+        verbose_name_plural = "Employment"
 
     def __str__(self):
-        return '{0}'.format(self.title)
+        return "{0}".format(self.title)
 
 
 class Education(models.Model):
@@ -48,11 +48,11 @@ class Education(models.Model):
     end_date = models.DateField()
 
     class Meta:
-        verbose_name = 'Education'
-        verbose_name_plural = 'Education'
+        verbose_name = "Education"
+        verbose_name_plural = "Education"
 
     def __str__(self):
-        return '{0}'.format(self.title)
+        return "{0}".format(self.title)
 
 
 class Skill(models.Model):
@@ -68,8 +68,8 @@ class Contact(models.Model):
     phone = models.CharField(max_length=20)
 
     class Meta:
-        verbose_name = 'Contact'
-        verbose_name_plural = 'Contact'
+        verbose_name = "Contact"
+        verbose_name_plural = "Contact"
 
     def __str__(self):
         return self.email
@@ -80,8 +80,8 @@ class Resume_PDF(models.Model):
     pdf_file = models.FileField()
 
     class Meta:
-        verbose_name = 'Resume'
-        verbose_name_plural = 'Resume'
+        verbose_name = "Resume"
+        verbose_name_plural = "Resume"
 
     def __str__(self) -> str:
         return self.title
