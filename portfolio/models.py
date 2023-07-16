@@ -11,11 +11,11 @@ class Hero(models.Model):
     image = models.ImageField()
 
     class Meta:
-        verbose_name = 'Hero'
-        verbose_name_plural = 'Hero'
+        verbose_name = "Hero"
+        verbose_name_plural = "Hero"
 
     def __str__(self):
-        return '{0} {1}'.format(self.title, self.subtitle)
+        return "{0} {1}".format(self.title, self.subtitle)
 
 
 class About(models.Model):
@@ -24,8 +24,8 @@ class About(models.Model):
     icon = models.CharField(max_length=30)  # Material Icon name
 
     class Meta:
-        verbose_name = 'About'
-        verbose_name_plural = 'About'
+        verbose_name = "About"
+        verbose_name_plural = "About"
 
     def __str__(self):
         return self.title
@@ -52,15 +52,16 @@ class Project(models.Model):
         if self.image:
             image = Image.open(self.image)
             # for PNG images, discard the alpha channel and fill it with some color
-            if image.mode in ('RGBA', 'LA'):
-                background = Image.new(image.mode[:-1], image.size, '#fff')
+            if image.mode in ("RGBA", "LA"):
+                background = Image.new(image.mode[:-1], image.size, "#fff")
                 background.paste(image, image.split()[-1])
                 image = background
             image_io = BytesIO()
-            image.save(image_io, format='JPEG', quality=100)
+            image.save(image_io, format="JPEG", quality=100)
             # change the image field value to be the newly modified image value
-            self.image.save(self.image.name, ContentFile(
-                image_io.getvalue()), save=False)
+            self.image.save(
+                self.image.name, ContentFile(image_io.getvalue()), save=False
+            )
         super(Project, self).save(*args, **kwargs)
 
     def __str__(self):
@@ -73,8 +74,8 @@ class Contact(models.Model):
     phone = models.CharField(max_length=20)
 
     class Meta:
-        verbose_name = 'Contact'
-        verbose_name_plural = 'Contact'
+        verbose_name = "Contact"
+        verbose_name_plural = "Contact"
 
     def __str__(self):
         return self.email
@@ -94,8 +95,8 @@ class Footer(models.Model):
     copyright = models.CharField(max_length=200)
 
     class Meta:
-        verbose_name = 'Footer'
-        verbose_name_plural = 'Footer'
+        verbose_name = "Footer"
+        verbose_name_plural = "Footer"
 
     def __str__(self):
         return self.copyright

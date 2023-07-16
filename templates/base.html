@@ -8,7 +8,7 @@
     <meta name="robots" content="index, follow" />
     <meta
       name="description"
-      content="Raymond Thurman is a professional freelance web and software developer serving Choctaw and Pushmataha Counties in Southwestern Oklahoma. Contact Raymond for high-quality web development services."
+      content={% block description %}"Raymond Thurman is a professional freelance web and software developer serving Choctaw and Pushmataha Counties in Southwestern Oklahoma. Contact Raymond for high-quality web development services."{% endblock description %}
     />
     <meta
       name="keywords"
@@ -49,7 +49,7 @@
     <meta name="msapplication-TileImage" content="{% static 'images/favicon/ms-icon-144x144.png' %}">
     <meta name="theme-color" content="#ffffff">
 
-    <title>{% block title %}Raymond Thurman - Portfolio{% endblock %}</title>
+    <title>{% block title %}Raymond Thurman - Portfolio{% endblock title %}</title>
     <base href="/" />
     <!-- Custom CSS -->
     <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet" />

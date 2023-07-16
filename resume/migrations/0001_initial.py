@@ -4,97 +4,151 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('address', models.CharField(max_length=250)),
-                ('email', models.CharField(max_length=150)),
-                ('phone', models.CharField(max_length=20)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("address", models.CharField(max_length=250)),
+                ("email", models.CharField(max_length=150)),
+                ("phone", models.CharField(max_length=20)),
             ],
             options={
-                'verbose_name': 'Contact',
-                'verbose_name_plural': 'Contact',
+                "verbose_name": "Contact",
+                "verbose_name_plural": "Contact",
             },
         ),
         migrations.CreateModel(
-            name='Education',
+            name="Education",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.CharField(max_length=200)),
-                ('start_date', models.DateField()),
-                ('end_date', models.DateField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.CharField(max_length=200)),
+                ("start_date", models.DateField()),
+                ("end_date", models.DateField()),
             ],
             options={
-                'verbose_name': 'Education',
-                'verbose_name_plural': 'Education',
+                "verbose_name": "Education",
+                "verbose_name_plural": "Education",
             },
         ),
         migrations.CreateModel(
-            name='Employment',
+            name="Employment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('role', models.CharField(max_length=200)),
-                ('location', models.CharField(max_length=200)),
-                ('start_date', models.DateField()),
-                ('end_date', models.DateField()),
-                ('description', models.CharField(max_length=1000)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("role", models.CharField(max_length=200)),
+                ("location", models.CharField(max_length=200)),
+                ("start_date", models.DateField()),
+                ("end_date", models.DateField()),
+                ("description", models.CharField(max_length=1000)),
             ],
             options={
-                'verbose_name': 'Employment',
-                'verbose_name_plural': 'Employment',
+                "verbose_name": "Employment",
+                "verbose_name_plural": "Employment",
             },
         ),
         migrations.CreateModel(
-            name='Projects',
+            name="Projects",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.CharField(max_length=1000)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.CharField(max_length=1000)),
             ],
             options={
-                'verbose_name': 'Projects',
-                'verbose_name_plural': 'Projects',
+                "verbose_name": "Projects",
+                "verbose_name_plural": "Projects",
             },
         ),
         migrations.CreateModel(
-            name='Resume_PDF',
+            name="Resume_PDF",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=25)),
-                ('pdf_file', models.FileField(upload_to='')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=25)),
+                ("pdf_file", models.FileField(upload_to="")),
             ],
             options={
-                'verbose_name': 'Resume',
-                'verbose_name_plural': 'Resume',
+                "verbose_name": "Resume",
+                "verbose_name_plural": "Resume",
             },
         ),
         migrations.CreateModel(
-            name='Skill',
+            name="Skill",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('skill', models.CharField(max_length=40)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("skill", models.CharField(max_length=40)),
             ],
         ),
         migrations.CreateModel(
-            name='Summary',
+            name="Summary",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.CharField(max_length=1000)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.CharField(max_length=1000)),
             ],
             options={
-                'verbose_name': 'Summary',
-                'verbose_name_plural': 'Summary',
+                "verbose_name": "Summary",
+                "verbose_name_plural": "Summary",
             },
         ),
     ]

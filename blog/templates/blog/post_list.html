@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Raymond Thurman - Blog of Randomness{% endblock title %}
+{% block title %}Raymond Thurman - Developer Blog{% endblock title %}
+{% block description %}"Explore the fascinating world of software development, woodworking, and 3D printing. Discover insightful articles, tutorials, and project showcases covering a wide range of topics, including coding best practices, woodworking techniques, and innovative 3D printing applications. Expand your knowledge and get inspired to create exceptional projects that blend the realms of technology, craftsmanship, and creativity."{% endblock description %}
 {% block content %}
 <div class="header">
   <header class="text-center py-5 fade-in">
@@ -30,6 +31,16 @@
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">{{ post.title }}</h5>
+            <div class="mb-2">
+              {% for category in post.categories.all %}
+              Category: <span class="badge bg-warning rounded-pill">{{ category.name }}</span>
+              {% endfor %}
+            </div>
+            <div class="mb-2">
+              {% for tag in post.tags.all %}
+              Tags: <span class="badge bg-info rounded-pill">{{ tag.name }}</span>
+              {% endfor %}
+            </div>
             <p class="card-text">{{ post.content|truncatechars:150|safe }}</p>
             <a href="{% url 'blog:post-detail' post.id %}" class="btn btn-primary">Read More</a>
           </div>
@@ -66,7 +77,7 @@
       </ul>
     </nav>
     <!-- Contact -->
-  <section id="contact" class="bg-primary p-2 p-md-5 my-5">
+  <section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
   <div class="container">
     {% if contact_data %}
     <ul class="nav justify-content-center my-3">

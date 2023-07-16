@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% block title %}Blog | {{ post.title }}{% endblock title %}
+{% block description %}"{{ post.description }}"{% endblock description %}
 {% block content %}
 <div class="header">
     <header class="py-3">
