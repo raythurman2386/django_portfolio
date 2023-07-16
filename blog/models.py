@@ -32,6 +32,7 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
+    description = models.CharField(max_length=200, null=True)
     slug = models.SlugField(unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
