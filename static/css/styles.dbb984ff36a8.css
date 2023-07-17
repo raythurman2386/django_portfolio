@@ -12135,12 +12135,6 @@ a .material-icons {
   color: #ffffff;
 }
 
-pre {
-  background-color: darkgrey;
-  padding: 1.5rem;
-  border-radius: 10px;
-}
-
 /* ---------- WAVES ---------- */
 .waves {
   position: relative;
@@ -12344,4 +12338,4 @@ pre {
   100% {
     transform: scale(1);
   }
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.dbb984ff36a8.css.map */
