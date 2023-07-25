@@ -5,7 +5,6 @@
 <title>{% block title %}{% endblock %}</title>
 <link rel="stylesheet" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
 {% block dark-mode-vars %}
-  <link rel="stylesheet" href="{% static "admin/css/dark_mode.css" %}">
   <script src="{% static "admin/js/theme.js" %}" defer></script>
 {% endblock %}
 {% if not is_popup and is_nav_sidebar_enabled %}
@@ -100,8 +99,8 @@
         {% block nav-breadcrumbs %}
             <nav aria-label="{% translate 'Breadcrumbs' %}" class="bg-secondary text-dark">
                 {% block breadcrumbs %}
-                    <div class="breadcrumbs">
-                        <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+                    <div class="breadcrumb">
+                        <a href="{% url 'admin:index' %}" class="breadcrumb-item">{% translate 'Home' %}</a>
                         {% if title %} &rsaquo; {{ title }}{% endif %}
                     </div>
                 {% endblock %}
