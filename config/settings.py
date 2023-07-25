@@ -18,9 +18,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
 
-SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT')
-SESSION_COOKIE_SECURE = os.environ.get('SECURE_SSL_REDIRECT')
-CSRF_COOKIE_SECURE = os.environ.get('SECURE_SSL_REDIRECT')
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 ALLOWED_ORIGINS = ["http://*", "https://*"]
 ALLOWED_HOSTS = [
@@ -44,6 +44,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # OAuth
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
     # Analytics
     "analytical",
     # Bootstrap
@@ -55,6 +61,7 @@ INSTALLED_APPS = [
     "resume",
     "tests",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -84,6 +91,43 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': os.environ.get('EMAIL_CLIENT_ID'),
+            'secret': os.environ.get('EMAIL_CLIENT_SECRET'),
+            'key': os.environ.get('EMAIL_REFRESH_TOKEN')
+        },
+        'SCOPE': [
+            "email"
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'offline'
+        }
+    },
+    'facebook': {
+        'APP': {
+            'client_id': '',
+            'secret': '',
+            'key': ''
+        }
+    }
+}
+
 
 WSGI_APPLICATION = "config.wsgi.application"
 
@@ -169,7 +213,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "/blog"
 LOGOUT_REDIRECT_URL = "/"
-
 SITE_TITLE = "Raymond Thurman - Portfolio"
 
 # Email Backend Configuration
