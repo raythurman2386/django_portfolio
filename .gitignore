@@ -12,5 +12,5 @@ __pycache__
 staticfiles
 staticFiles
 .vscode
-media/*.jpg
+# media/*.jpg
 media/*.pdf
