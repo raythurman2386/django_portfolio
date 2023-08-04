@@ -17,10 +17,10 @@
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Raymond Thurman - Portfolio">
+    <meta property="og:title" content={% block og_title %}"Raymond Thurman - Portfolio"{% endblock og_title %}>
     <meta property="og:description"
-      content="Raymond Thurman is a professional freelance web and software developer serving Choctaw and Pushmataha Counties in Southwestern Oklahoma. Contact Raymond for high-quality web development services.">
-    <meta property="og:url" content="https://www.raymondthurman.com">
+      content={% block og_description %}"Raymond Thurman is a professional freelance web and software developer serving Choctaw and Pushmataha Counties in Southwestern Oklahoma. Contact Raymond for high-quality web development services."{% endblock og_description %}>
+    <meta property="og:url" content={% block og_url %}"https://www.raymondthurman.com"{% endblock og_url %}>
     <meta property="og:site_name" content="Raymond Thurman - Portfolio">
     <meta property="og:image" content="{% static 'images/logo.png' %}">
 
