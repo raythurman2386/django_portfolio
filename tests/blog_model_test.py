@@ -6,8 +6,7 @@ from blog.models import Hero, Category, Tag, Post, Comment, Contact
 
 class ModelsTestCase(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(
-            username="testuser", password="testpass")
+        self.user = User.objects.create_user(username="testuser", password="testpass")
         self.category = Category.objects.create(name="Test Category")
         self.tag = Tag.objects.create(name="Test Tag")
         self.post = Post.objects.create(
@@ -43,8 +42,7 @@ class ModelsTestCase(TestCase):
     def test_post_model(self):
         self.assertEqual(self.post.title, "Test Post")
         self.assertEqual(self.post.content, "This is a test post content.")
-        self.assertEqual(self.post.description,
-                         "This is a test post description.")
+        self.assertEqual(self.post.description, "This is a test post description.")
         self.assertEqual(self.post.slug, "test-post")
         self.assertEqual(self.post.author, self.user)
         self.assertEqual(self.post.created_at.date(), timezone.now().date())
