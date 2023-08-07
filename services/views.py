@@ -14,6 +14,5 @@ class ServicePageView(TemplateView):
         context["summary_data"] = Summary.objects.all()
         context["service_data"] = Service.objects.all()
         context["contact_data"] = Contact.objects.all()
-        context["blog_posts"] = Post.objects.order_by(
-            '-created_at')[:8]
+        context["blog_posts"] = Post.objects.order_by("-created_at")[:8]
         return context
