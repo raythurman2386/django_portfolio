@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "blog",
     "portfolio",
     "resume",
+    "services",
     "tests",
 ]
 

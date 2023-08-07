@@ -1,0 +1,102 @@
+{% extends "base.html" %} 
+{% block title %}Raymond Thurman - Freelance Services{% endblock title %}
+{% block description %}"I specialize in delivering high-quality, full-stack CMS solutions using cutting-edge technologies. With expertise in Next.js, a powerful React framework, and Sanity.io, a flexible headless CMS, I craft dynamic and interactive websites that empower clients to manage content with ease. Whether you need custom web development, responsive design, or seamless integrations, I am committed to providing efficient and innovative solutions tailored to your unique needs. Let's bring your digital vision to life together"{% endblock description %}
+{% block og_title %}"Raymond Thurman - Freelance Services"{% endblock og_title %}
+{% block og_url %}https://www.raymondthurman.com/services{% endblock og_url %}
+{% block og_description %}"I specialize in delivering high-quality, full-stack CMS solutions using cutting-edge technologies. With expertise in Next.js, a powerful React framework, and Sanity.io, a flexible headless CMS, I craft dynamic and interactive websites that empower clients to manage content with ease. Whether you need custom web development, responsive design, or seamless integrations, I am committed to providing efficient and innovative solutions tailored to your unique needs. Let's bring your digital vision to life together"{% endblock og_description %}
+{% block content %}
+<div class="header">
+  <!-- Header -->
+  <header id="summary" class="text-center py-5 fade-in">
+    <div class="container">
+      {% if summary_data %}
+      <div class="row">
+        {% for summary in summary_data %}
+        <div class="col-lg-12 mx-auto my-5">
+          <h2 class="fw-bold">{{ summary.title }}</h2>
+          <p class="text-white mb-0">{{ summary.description }}</p>
+        </div>
+        {% endfor %}
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <a
+            href="/#contact"
+            class="btn btn-primary btn-lg text-uppercase px-4 py-2 me-sm-3"
+            >Contact Me!</a
+          >
+        </div>
+  </div>
+      </div>
+      {% else %}
+      <h5 class="text-primary text-center">No Data</h5>
+      {% endif %}
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- Waves Container -->
+  {% include 'components/waves_container.html' %}
+  <!-- End Waves Container -->
+</div>
+
+<main>
+  {% comment %} Services {% endcomment %}
+  <div class="container">
+    <section id="services" class="row">
+      {% if service_data %}
+      <div class="col-md-9 mx-auto my-3">
+        {% for service in service_data %}
+        <div class="my-3">
+          <h3 class="fw-bold">{{service.title}}</h3>
+          <p>{{service.description}}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% if blog_posts %}
+      {% include 'components/aside.html' %}
+      {% endif %}
+      {% else %}
+      <h5 class="text-center p-5 my-3">No Data</h5>
+      {% endif %}
+    </section>
+    {% include 'components/stack.html' %}
+  <!-- Contact -->
+  <section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
+  <div class="container">
+    {% if contact_data %}
+    <ul class="nav justify-content-center my-3">
+      {% for contact in contact_data %}
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >place</span
+          >
+          {{ contact.address }}
+        </a>
+      </li>
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >email</span
+          >
+          {{ contact.email }}
+        </a>
+      </li>
+      <li class="nav-item me-sm-3 me-lg-5">
+        <a href="#" class="nav-link px-0 px-md-2 text-white">
+          <span class="material-icons material-icons-outlined contact-icon me-1"
+            >phone</span
+          >
+          {{ contact.phone }}
+        </a>
+      </li>
+      {% endfor %}
+    </div>
+  </ul>
+    {% else %}
+    <h5 class="bg-primary text-white text-center">No Data</h5>
+    {% endif %}
+  </div>
+</section>
+  <!-- End Contact-->
+</main>
+{% endblock %}

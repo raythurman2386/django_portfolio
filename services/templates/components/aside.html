@@ -1,0 +1,18 @@
+<aside class="col-md-3 d-none d-md-block my-3">
+        <h3 class="fw-bold">Recent Blog Posts</h3>
+        <ul class="list-unstyled list-group my-3">
+        {% for post in blog_posts %}
+          <li class="list-group-item"><a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" rel="noopener noreferrer" href="/blog/post/{{post.id}}">{{post.title}}</a></li>
+        {% endfor %}
+        <h3 class="fw-bold my-3">Useful Links</h3>
+          <ul class="list-unstyled list-group">
+              <li class="list-group-item"><a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" rel="noopener noreferrer" href="/#contact">Contact Me!</a></li>
+              <li class="list-group-item"><a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" rel="noopener noreferrer" href="https://nextjs.org">NextJS Documentation</a></li>
+              <li class="list-group-item"><a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" rel="noopener noreferrer" href="https://www.sanity.io">Sanity.io Website</a></li>
+              <li class="list-group-item"><a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" rel="noopener noreferrer" href="https://vercel.com">Vercel Website</a></li>
+              <li class="list-group-item"><a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" rel="noopener noreferrer" href="https://mui.com">Material UI Documentation</a></li>
+              <li class="list-group-item"><a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" rel="noopener noreferrer" href="https://tailwindui.com">Tailwind CSS Documentation</a></li>
+              <li class="list-group-item"><a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" rel="noopener noreferrer" href="https://getbootstrap.com">Bootstrap 5 Documentation</a></li>
+              <li class="list-group-item"><a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" target="_blank" rel="noopener noreferrer" href="https://www.creative-tim.com">Fully Custom Themes</a></li>
+          </ul>
+      </aside>
