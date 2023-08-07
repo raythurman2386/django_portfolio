@@ -15,6 +15,18 @@ class Summary(models.Model):
         return "{0}".format(self.title)
 
 
+class Service(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.CharField(max_length=500)
+
+    class Meta:
+        verbose_name = "Service"
+        verbose_name_plural = "Services"
+
+    def __str__(self):
+        return "{0}".format(self.title)
+
+
 class Contact(models.Model):
     address = models.CharField(max_length=250)
     email = models.CharField(max_length=150)
