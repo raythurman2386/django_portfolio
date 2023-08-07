@@ -17,6 +17,14 @@
           <p class="text-white mb-0">{{ summary.description }}</p>
         </div>
         {% endfor %}
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <a
+            href="/#contact"
+            class="btn btn-primary btn-lg text-uppercase px-4 py-2 me-sm-3"
+            >Contact Me!</a
+          >
+        </div>
+  </div>
       </div>
       {% else %}
       <h5 class="text-primary text-center">No Data</h5>
@@ -51,7 +59,6 @@
       {% endif %}
     </section>
     {% include 'components/stack.html' %}
-  </div>
   <!-- Contact -->
   <section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
   <div class="container">
@@ -83,7 +90,8 @@
         </a>
       </li>
       {% endfor %}
-    </ul>
+    </div>
+  </ul>
     {% else %}
     <h5 class="bg-primary text-white text-center">No Data</h5>
     {% endif %}
