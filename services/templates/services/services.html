@@ -17,13 +17,6 @@
           <p class="text-white mb-0">{{ summary.description }}</p>
         </div>
         {% endfor %}
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-          <a
-            href="/#contact"
-            class="btn btn-primary btn-lg text-uppercase px-4 py-2 me-sm-3"
-            >Contact Me!</a
-          >
-        </div>
       </div>
       {% else %}
       <h5 class="text-primary text-center">No Data</h5>
@@ -60,6 +53,7 @@
     {% include 'components/stack.html' %}
   <!-- Contact -->
   <section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
+    {% include 'components/contact_form.html' with contact_message="Take the first step and connect with us to elevate your online presence to new heights. Reach out, and let's embark on a journey of digital success together." %}
   <div class="container">
     {% if contact_data %}
     <ul class="nav justify-content-center my-3">
