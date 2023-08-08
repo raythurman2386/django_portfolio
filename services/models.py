@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 
 # Create your models here.
@@ -18,6 +19,7 @@ class Summary(models.Model):
 class Service(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
+    created_at = models.DateTimeField(default=timezone.now)
 
     class Meta:
         verbose_name = "Service"
