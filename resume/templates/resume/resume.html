@@ -1,4 +1,5 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% load static %} 
 {% block title %}Raymond Thurman - Developer Resume{% endblock title %}
 {% block description %}"Explore my expertise in programming languages, frameworks, and technologies, as well as my track record of delivering high-quality software solutions. Learn more about my professional background, education, and passion for creating innovative and efficient software applications. Hire a skilled software developer with a proven ability to drive projects to success and contribute to organizational growth."{% endblock description %}
 {% block og_title %}"Raymond Thurman - Developer Resume"{% endblock og_title %}
@@ -105,40 +106,34 @@
   </div>
   <!-- Contact -->
   <section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
-  <div class="container">
-    {% if contact_data %}
-    <ul class="nav justify-content-center my-3">
-      {% for contact in contact_data %}
-      <li class="nav-item me-sm-3 me-lg-5">
-        <a href="#" class="nav-link px-0 px-md-2 text-white">
-          <span class="material-icons material-icons-outlined contact-icon me-1"
-            >place</span
-          >
-          {{ contact.address }}
-        </a>
-      </li>
-      <li class="nav-item me-sm-3 me-lg-5">
-        <a href="#" class="nav-link px-0 px-md-2 text-white">
-          <span class="material-icons material-icons-outlined contact-icon me-1"
-            >email</span
-          >
-          {{ contact.email }}
-        </a>
-      </li>
-      <li class="nav-item me-sm-3 me-lg-5">
-        <a href="#" class="nav-link px-0 px-md-2 text-white">
-          <span class="material-icons material-icons-outlined contact-icon me-1"
-            >phone</span
-          >
-          {{ contact.phone }}
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% else %}
-    <h5 class="bg-primary text-white text-center">No Data</h5>
-    {% endif %}
-  </div>
+    <div class="container">
+      {% if contact_data %}
+      <ul class="nav justify-content-center my-3">
+        {% for contact in contact_data %}
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <img src="{% static 'images/place.svg' %}" alt="Logo" class="contact-icon me-1">
+            {{ contact.address }}
+          </a>
+        </li>
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <img src="{% static 'images/email.svg' %}" alt="Logo" class="contact-icon me-1">
+            {{ contact.email }}
+          </a>
+        </li>
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <img src="{% static 'images/phone.svg' %}" alt="Logo" class="contact-icon me-1">
+            {{ contact.phone }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <h5 class="bg-primary text-white text-center">No Data</h5>
+      {% endif %}
+    </div>
 </section>
   <!-- End Contact-->
 </main>

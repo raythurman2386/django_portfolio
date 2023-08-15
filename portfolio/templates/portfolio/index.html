@@ -64,10 +64,7 @@
             <div
               class="about-icon d-inline-flex align-items-center justify-content-center bg-primary text-white fs-4 rounded-2"
             >
-              <span
-                class="about material-icons material-icons-outlined text-white"
-                >{{ about.icon }}</span
-              >
+            <img src="{% static 'images/'|add:about.icon|add:'.svg' %}" alt="Logo" class="ms-2 me-3">
             </div>
           </div>
           <h5>{{ about.title }}</h5>
@@ -119,25 +116,19 @@
         {% for contact in contact_data %}
         <li class="nav-item me-5">
           <a href="#" class="nav-link px-2 text-white">
-            <span class="material-icons material-icons-outlined contact-icon me-1"
-              >place</span
-            >
+            <img src="{% static 'images/place.svg' %}" alt="Logo" class="contact-icon me-1">
             {{ contact.address }}
           </a>
         </li>
         <li class="nav-item me-5">
           <a href="#" class="nav-link px-2 text-white">
-            <span class="material-icons material-icons-outlined contact-icon me-1"
-              >email</span
-            >
+            <img src="{% static 'images/email.svg' %}" alt="Logo" class="contact-icon me-1">
             {{ contact.email }}
           </a>
         </li>
         <li class="nav-item me-5">
           <a href="#" class="nav-link px-2 text-white">
-            <span class="material-icons material-icons-outlined contact-icon me-1"
-              >phone</span
-            >
+            <img src="{% static 'images/phone.svg' %}" alt="Logo" class="contact-icon me-1">
             {{ contact.phone }}
           </a>
         </li>
