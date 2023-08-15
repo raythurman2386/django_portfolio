@@ -1,4 +1,5 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% load static %} 
 {% block title %}Raymond Thurman - Freelance Services{% endblock title %}
 {% block description %}"I specialize in delivering high-quality, full-stack CMS solutions using cutting-edge technologies. With expertise in Next.js, a powerful React framework, and Sanity.io, a flexible headless CMS, I craft dynamic and interactive websites that empower clients to manage content with ease. Whether you need custom web development, responsive design, or seamless integrations, I am committed to providing efficient and innovative solutions tailored to your unique needs. Let's bring your digital vision to life together"{% endblock description %}
 {% block og_title %}"Raymond Thurman - Freelance Services"{% endblock og_title %}
@@ -55,41 +56,34 @@
   <!-- Contact -->
   <section id="contact" class="bg-primary p-5 p-sm-5 mt-5">
     {% include 'components/contact_form.html' with contact_message="Take the first step and connect with us to elevate your online presence to new heights. Reach out, and let's embark on a journey of digital success together." %}
-  <div class="container">
-    {% if contact_data %}
-    <ul class="nav justify-content-center my-3">
-      {% for contact in contact_data %}
-      <li class="nav-item me-sm-3 me-lg-5">
-        <a href="#" class="nav-link px-0 px-md-2 text-white">
-          <span class="material-icons material-icons-outlined contact-icon me-1"
-            >place</span
-          >
-          {{ contact.address }}
-        </a>
-      </li>
-      <li class="nav-item me-sm-3 me-lg-5">
-        <a href="#" class="nav-link px-0 px-md-2 text-white">
-          <span class="material-icons material-icons-outlined contact-icon me-1"
-            >email</span
-          >
-          {{ contact.email }}
-        </a>
-      </li>
-      <li class="nav-item me-sm-3 me-lg-5">
-        <a href="#" class="nav-link px-0 px-md-2 text-white">
-          <span class="material-icons material-icons-outlined contact-icon me-1"
-            >phone</span
-          >
-          {{ contact.phone }}
-        </a>
-      </li>
-      {% endfor %}
+     <div class="container">
+      {% if contact_data %}
+      <ul class="nav justify-content-center my-3">
+        {% for contact in contact_data %}
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <img src="{% static 'images/place.svg' %}" alt="Logo" class="contact-icon me-1">
+            {{ contact.address }}
+          </a>
+        </li>
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <img src="{% static 'images/email.svg' %}" alt="Logo" class="contact-icon me-1">
+            {{ contact.email }}
+          </a>
+        </li>
+        <li class="nav-item me-5">
+          <a href="#" class="nav-link px-2 text-white">
+            <img src="{% static 'images/phone.svg' %}" alt="Logo" class="contact-icon me-1">
+            {{ contact.phone }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <h5 class="bg-primary text-white text-center">No Data</h5>
+      {% endif %}
     </div>
-  </ul>
-    {% else %}
-    <h5 class="bg-primary text-white text-center">No Data</h5>
-    {% endif %}
-  </div>
 </section>
   <!-- End Contact-->
 </main>
