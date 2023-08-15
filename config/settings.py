@@ -18,9 +18,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
 
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT")
+SESSION_COOKIE_SECURE = os.environ.get("SECURE_SSL_REDIRECT")
+CSRF_COOKIE_SECURE = os.environ.get("SECURE_SSL_REDIRECT")
 
 ALLOWED_ORIGINS = ["http://*", "https://*"]
 ALLOWED_HOSTS = [
@@ -158,6 +158,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Location where we will store our static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
