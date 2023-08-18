@@ -1,6 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from django.utils.text import slugify
 from .forms import ContactForm
 from .models import Hero, About, Project, Contact, ContactSubmission, Footer
 
@@ -12,7 +13,16 @@ class IndexPageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["hero_data"] = Hero.objects.all()
         context["about_data"] = About.objects.all()
-        context["project_data"] = Project.objects.all()
+
+        project_data = Project.objects.all()
+        trimmed_project_data = []
+
+        for project in project_data:
+            trimmed_project_name = project.name.strip()
+            project.image_filename = slugify(trimmed_project_name) + '.jpg'
+            trimmed_project_data.append(project)
+
+        context["project_data"] = trimmed_project_data
         context["contact_data"] = Contact.objects.all()
         context["footer_data"] = Footer.objects.all()
         return context
@@ -27,7 +37,8 @@ def contact_submit(request):
             message = form.cleaned_data["message"]
 
             # Save to the db
-            submission = ContactSubmission(name=name, email=email, message=message)
+            submission = ContactSubmission(
+                name=name, email=email, message=message)
             submission.save()
 
             # Send an email notification

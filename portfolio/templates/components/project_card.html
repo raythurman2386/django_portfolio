@@ -1,10 +1,11 @@
 {% load static %}
+
 <div class="col-lg-4 mx-auto mb-5 hover-scale">
   <div class="card h-100 shadow-lg border-0 bg-light">
     {% if project.image.url %}
     <img
       class="card-img-top"
-      src="{% spaceless %}{% static 'images/'|add:project.name|trim|add:'.jpg' %}{% endspaceless %}"
+      src="{% spaceless %}{% static 'images/'|add:project.image_filename %}{% endspaceless %}"
       alt="Project"
       loading="lazy"
     />
